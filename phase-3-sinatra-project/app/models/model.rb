@@ -1,3 +1,3 @@
 class Something < ActiceRecord::Base
-    test
+    test testt test
 end
