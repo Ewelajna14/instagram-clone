@@ -1,7 +1,5 @@
 
 import '../App.css';
-import './PostContainer'
-import './Header'
 import Header from './Header';
 import PostContainer from './PostContainer';
 

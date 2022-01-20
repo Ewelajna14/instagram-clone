@@ -1,13 +1,14 @@
 
-import './Post'
+import Post from './Post'
 
 function PostContainer(){
     return(
         <div>
-            <h1>PostContainer</h1>
+            <Post/>
         </div>
 
     )
 }
 
 export default PostContainer;
+
