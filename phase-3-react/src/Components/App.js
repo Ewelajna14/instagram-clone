@@ -1,15 +1,15 @@
 
 import '../App.css';
+import './PostContainer'
+import './Header'
+import Header from './Header';
+import PostContainer from './PostContainer';
 
 function App() {
   return (
     <div className="app">
-      <div className="header"> 
-       <img className="header-image"
-       src="Instagram-Wordmark-Logo.wine.svg" alt="logo"/>
-      </div>
-      <h1>Hello</h1>
-
+      <Header/>
+      <PostContainer/>
     </div>
   );
 }

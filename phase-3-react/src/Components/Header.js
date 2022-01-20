@@ -1,11 +1,12 @@
 
-import './App.css';
+import '../App.css';
 
 function Header() {
   return (
-    <div>
-      <h1>header</h1>
-    </div>
+    <div className="header"> 
+       <img className="header-image"
+       src="Instagram-Wordmark-Logo.wine.svg" alt="logo"/>
+      </div>
   );
 }
 
