@@ -34,6 +34,7 @@ const ImageStyled = styled.div`
 img{
     width: 100%;
     object-fit: contain;
+    max-height: 600px;
 }
 `
 const AvatarStyled = styled.div`
