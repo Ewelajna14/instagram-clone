@@ -4,7 +4,8 @@ class ApplicationController < Sinatra::Base
   # Add your routes here
   get "/posts" do
     posts = Post.all
-    posts.to_json(include: :user)
+    posts.to_json(include: {comments:{include: :user}})
   end
 
 end
+ 

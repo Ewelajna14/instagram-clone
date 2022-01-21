@@ -17,7 +17,6 @@ function PostContainer(){
         )
     })
 
-    console.log(posts)
 
     return(
         <StyledContainer>

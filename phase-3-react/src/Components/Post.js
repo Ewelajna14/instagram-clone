@@ -1,13 +1,16 @@
 import styled from 'styled-components';
 import Avatar from  '@material-ui/core/Avatar';
 import AddComment from './AddComment';
+import Comments from './Comments';
+
 
 function Post({post}){
+    console.log(post)
     return(
         <PostStyled>
             {/* header contains username and user photo*/ }
             <AvatarStyled>
-            <Avatar/><h2>{post.user.name}</h2>
+            <Avatar/><h2>{post.username}</h2>
             </AvatarStyled>
             {/* image*/ }
             <ImageStyled>
@@ -15,9 +18,14 @@ function Post({post}){
             </ImageStyled>
             {/* image description*/ }
             <DescriptionStyled>
-            <h3>{post.user.name}</h3>
+            <h3>{post.username}</h3>
             <p>{post.description}</p>
             </DescriptionStyled>
+             {post.comments.map((comment)=>{
+                 return(
+                     <Comments comment={comment}/>
+                 )
+             })}
             <AddComment/>
         </PostStyled>
     )
