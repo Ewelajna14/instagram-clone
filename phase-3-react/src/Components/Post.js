@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Avatar from  '@material-ui/core/Avatar';
-import AddComment from './AddCommen';
+import AddComment from './AddComment';
 
 function Post({post}){
     return(
