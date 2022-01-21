@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Avatar from  '@material-ui/core/Avatar';
+import AddComment from './AddCommen';
 
 function Post({post}){
     return(
@@ -17,11 +18,14 @@ function Post({post}){
             <h3>{post.user.name}</h3>
             <p>{post.description}</p>
             </DescriptionStyled>
+            <AddComment/>
         </PostStyled>
     )
 }
 
 export default Post;
+
+
 
 const PostStyled = styled.div`
 max-width: 700px;
