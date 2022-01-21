@@ -3,11 +3,14 @@ margin: 0;
 }
 .app{
   background-color: #faf9f9;
-  height: 100vh;
 }
 
 .header{
-  background-color: #faf9f9 ;
+  background-color: white ;
+  border-bottom: 1px solid lightgray;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 .header-image{

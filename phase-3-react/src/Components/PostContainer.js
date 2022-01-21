@@ -1,4 +1,4 @@
-
+import styled from 'styled-components';
 import Post from './Post'
 import React, {useState, useEffect} from 'react' 
 
@@ -20,12 +20,19 @@ function PostContainer(){
     console.log(posts)
 
     return(
-        <div>
+        <StyledContainer>
             {displayPosts}
-        </div>
+        </StyledContainer>
 
     )
 }
 
 export default PostContainer;
 
+const StyledContainer = styled.div`
+padding: 20px;
+display:flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+`

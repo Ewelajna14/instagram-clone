@@ -27,7 +27,9 @@ const PostStyled = styled.div`
 max-width: 700px;
 background-color: white;
 border: 1px solid lightgray;
-margin-botton: 40px;
+margin-bottom: 40px;
+padding-top: 20px;
+padding-bottom: 20px;
 `
 
 const ImageStyled = styled.div`
