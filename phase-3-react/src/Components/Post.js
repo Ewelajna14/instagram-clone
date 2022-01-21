@@ -6,11 +6,11 @@ function Post({post}){
         <PostStyled>
             {/* header contains username and user photo*/ }
             <AvatarStyled>
-            <Avatar alt="Remy Sharp" src={post.user.avatar}/><h2>{post.user.name}</h2>
+            <Avatar/><h2>{post.user.name}</h2>
             </AvatarStyled>
             {/* image*/ }
             <ImageStyled>
-            <img src={post.image_url} alt="photo"/>
+            <img src={post.image_url}/>
             </ImageStyled>
             {/* image description*/ }
             <DescriptionStyled>
@@ -34,7 +34,6 @@ const ImageStyled = styled.div`
 img{
     width: 100%;
     object-fit: contain;
-    max-height: 600px;
 }
 `
 const AvatarStyled = styled.div`
