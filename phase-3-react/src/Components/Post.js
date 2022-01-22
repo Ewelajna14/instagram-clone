@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import Avatar from  '@material-ui/core/Avatar';
 import AddComment from './AddComment';
-import Comments from './Comments';
+import CommentsContainer from './CommentsContainer';
+
 
 
 function Post({post}){
@@ -21,11 +22,7 @@ function Post({post}){
             <h3>{post.username}</h3>
             <p>{post.description}</p>
             </DescriptionStyled>
-             {post.comments.map((comment)=>{
-                 return(
-                     <Comments comment={comment}/>
-                 )
-             })}
+            <CommentsContainer post={post}/>
             <AddComment/>
         </PostStyled>
     )
