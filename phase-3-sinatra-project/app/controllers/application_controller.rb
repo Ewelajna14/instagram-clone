@@ -23,7 +23,7 @@ class ApplicationController < Sinatra::Base
     user_id: params[:user_id],
     post_id: params[:post_id]
     )
-    comment.to_json
+    comment.to_json(include: :user)
   end
 
 end
