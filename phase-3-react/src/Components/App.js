@@ -3,7 +3,7 @@ import '../App.css';
 import Header from './Header';
 import PostContainer from './PostContainer';
 
-const myUser = {username: "Jaine"}
+const myUser = {name: "Jaine"}
 
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="app">
       <Header/>
-      <PostContainer/>
+      <PostContainer myUser={myUser}/>
     </div>
   );
 }

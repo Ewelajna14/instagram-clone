@@ -1,10 +1,19 @@
 import styled from "styled-components"
+import React, { useState } from "react";
+import EditComment from './EditComment'
 
-function Comments({comment}){
+function Comments({comment, myUser, onEditComment, post}){
+
+    const [isEditing, setIsEditing] = useState(false);
+
     return(
         <StyledComment>
             <h5>{comment.user.name}</h5>
-            {comment.content}
+            { isEditing? 
+                <EditComment comment={comment} onEditComment={onEditComment} post={post}/>
+            : comment.content} 
+            <button onClick={()=>setIsEditing((isEditing)=>!isEditing)}> Edit
+            </button> 
         </StyledComment>
     )
 }
