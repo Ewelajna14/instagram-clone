@@ -16,7 +16,7 @@ function CommentsContainer({post, updatePosts, myUser, onEditComment }){
                  )
              })}
         </StyledContainer>
-        <AddComment post={post} updatePosts={updatePosts}/>
+        <AddComment post={post} updatePosts={updatePosts} myUser={myUser}/>
         </div>
     )
 }

@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import styled from "styled-components"
 
-function AddComment({ updatePosts, post}){
+function AddComment({ updatePosts, post, myUser}){
 
   const [makeComment, setMakeComment] = useState("")
 
@@ -9,7 +9,7 @@ function AddComment({ updatePosts, post}){
     event.preventDefault()
     const newComment = {
       content:makeComment,
-      user_id: 159,
+      user_id: myUser.user_id,
       post_id: post.id
     }
 

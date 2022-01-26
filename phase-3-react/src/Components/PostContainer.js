@@ -2,8 +2,12 @@ import styled from 'styled-components';
 import Post from './Post'
 import React, {useState, useEffect} from 'react' 
 
-function PostContainer({myUser}){
+function PostContainer(){
     const [posts, setPosts] = useState([])
+
+    const myUser = {user_id: 160,
+                   name: "Kate"
+                   }
 
     useEffect(()=>{
         fetch("http://localhost:9292/posts")
@@ -12,7 +16,6 @@ function PostContainer({myUser}){
     },[])
 
     function updatePosts(post, comment){
-        console.log(comment)
       const postIndex = posts.findIndex((p)=>post.id === p.id)
       const oldPost = posts.find((p)=>post.id === p.id)
       const newPost = {...oldPost}
@@ -22,9 +25,8 @@ function PostContainer({myUser}){
       setPosts([...firstHalf, newPost, ...SecondHalf])
     }
 
+
     function editComment(post, editedCommentObj){
-        console.log(editedCommentObj)
-        console.log(post)
         const newComments = post.comments.map((comment)=>{
             if (comment.id === editedCommentObj.id){
                 return editedCommentObj
@@ -33,14 +35,13 @@ function PostContainer({myUser}){
                 return comment
             }
         })
-        const oldPost = posts.find((p)=>post.id === p.id)
-        const newPost = {...oldPost}
-        newPost.comments = newComments
-        console.log(newPost)
+
+        const editedPost = {...post}
+        editedPost.comments = newComments
         const postIndex = posts.findIndex((p)=>post.id === p.id)
         const firstHalf = posts.slice(0,postIndex)
         const SecondHalf = posts.slice(postIndex +1)
-        setPosts([...firstHalf, newPost, ...SecondHalf])
+        setPosts([...firstHalf, editedPost, ...SecondHalf])
     }
 
 

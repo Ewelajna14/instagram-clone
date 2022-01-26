@@ -1,11 +1,14 @@
 import React, { useState } from "react";
+import styled from "styled-components"
 
-function EditComment({comment, onEditComment, post}){
+function EditComment({comment, onEditComment, post, setIsEditing, isEditing}){
 
     const[edit, setEdit]=useState(comment.content)
+   
 
     function handleEditSubmit(event){
     event.preventDefault()
+    setIsEditing((isEditing)=>!isEditing)
 
     const editedComment = {
         id: comment.id,
@@ -29,15 +32,30 @@ function EditComment({comment, onEditComment, post}){
     
 
     return(
-        <form onSubmit={handleEditSubmit}>
+        <StyledForm onSubmit={handleEditSubmit}>
             <input
             type="text"
             value={edit}
             onChange={(e)=>setEdit(e.target.value)}
             />
-            <input type="submit" value="Save"/>
-        </form>
+            <input type="submit" value="Save"/> 
+        </StyledForm>
     )
 }
 
 export default EditComment
+
+const StyledForm = styled.form `
+input[type="text"]{
+    padding: 5px;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    outline: none;
+}
+
+input[type="submit"]{
+    padding: 5px;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+}
+`
