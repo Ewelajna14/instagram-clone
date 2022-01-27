@@ -11,7 +11,7 @@ function CommentsContainer({post, updatePosts, myUser, onEditComment, onCommentD
         <StyledContainer>
           {post.comments.map((comment)=>{
                  return(
-                     <Comments key={comment.id} comment={comment} myUser={myUser} onEditComment={onEditComment} post={post} onCommentDelete={onCommentDelete}/>
+                     <Comments key={comment.id} comment={comment} myUser={myUser} updatePosts={updatePosts} post={post} onCommentDelete={onCommentDelete}/>
                  )
              })}
         </StyledContainer>

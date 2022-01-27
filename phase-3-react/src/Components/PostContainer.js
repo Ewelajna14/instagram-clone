@@ -15,11 +15,25 @@ function PostContainer(){
         .then(posts=>setPosts(posts))
     },[])
 
-    function updatePosts(post, comment){
+    function updatePosts(post, comment, edit = false){
       const postIndex = posts.findIndex((p)=>post.id === p.id)
       const oldPost = posts.find((p)=>post.id === p.id)
       const newPost = {...oldPost}
-      newPost.comments = [...newPost.comments, comment]
+      if (!edit ){
+        newPost.comments = [...newPost.comments, comment]}
+     else {
+        const newComments = post.comments.map((com)=>{
+            if (com.id === comment.id){
+                return comment
+            }
+            else {
+                return com
+            }
+        })
+
+        newPost.comments= newComments
+     }
+
       const firstHalf = posts.slice(0,postIndex)
       const SecondHalf = posts.slice(postIndex +1)
       setPosts([...firstHalf, newPost, ...SecondHalf])

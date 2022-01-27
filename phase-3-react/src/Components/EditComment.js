@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components"
 
-function EditComment({comment, onEditComment, post, setIsEditing, isEditing}){
+function EditComment({comment, updatePosts, post, setIsEditing, isEditing}){
 
     const[edit, setEdit]=useState(comment.content)
    
@@ -17,7 +17,7 @@ function EditComment({comment, onEditComment, post, setIsEditing, isEditing}){
         post_id: comment.post_id
       }
 
-    fetch(`http://localhost:9292/posts/comments/${comment.id}`, {
+    fetch(`http://localhost:9292/posts/${post.id}/comments/${comment.id}`, {
         method: "PATCH",
         headers:{
             "Content-Type": "application/json",
@@ -25,7 +25,7 @@ function EditComment({comment, onEditComment, post, setIsEditing, isEditing}){
         body: JSON.stringify(editedComment),
         })
         .then((r) => r.json())
-        .then((editedComment) => onEditComment(post, editedComment));
+        .then((editedComment) => updatePosts(post, editedComment, true));
         setEdit("")
     }
 

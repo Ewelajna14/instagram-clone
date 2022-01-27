@@ -13,7 +13,7 @@ function AddComment({ updatePosts, post, myUser}){
       post_id: post.id
     }
 
-    fetch("http://localhost:9292/posts/comments", {
+    fetch(`http://localhost:9292/posts/${post.id}/comments`, {
       method: "POST",
       headers:{
         "Content-Type": "application/json",

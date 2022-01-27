@@ -2,14 +2,14 @@ import styled from "styled-components"
 import React, { useState } from "react";
 import EditComment from './EditComment'
 
-function Comments({comment, myUser, onEditComment, post, onCommentDelete}){
+function Comments({comment, myUser, updatePosts, post, onCommentDelete}){
 
     const [isEditing, setIsEditing] = useState(false);
 
     const isUser= myUser.user_id === comment.user.id
 
     function handleDeleteClick(){
-        fetch(`http://localhost:9292/posts/comments/${comment.id}`,{
+        fetch(`http://localhost:9292/posts/${post.id}/comments/${comment.id}`,{
             method: "DELETE",
         })
         onCommentDelete(post, comment.id)
@@ -19,7 +19,7 @@ function Comments({comment, myUser, onEditComment, post, onCommentDelete}){
         <StyledComment>
             <h5>{comment.user.name}</h5>
             { isEditing ?
-                <EditComment comment={comment} onEditComment={onEditComment} post={post} isEditing={isEditing} setIsEditing={setIsEditing}/>
+                <EditComment comment={comment} updatePosts={updatePosts} post={post} isEditing={isEditing} setIsEditing={setIsEditing} />
             : comment.content} 
             { isUser?
             <>
