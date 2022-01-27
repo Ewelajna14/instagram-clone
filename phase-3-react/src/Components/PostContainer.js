@@ -15,6 +15,7 @@ function PostContainer(){
         .then(posts=>setPosts(posts))
     },[])
 
+    //function to create, update and delete comment
     function updatePosts(post, comment, edit = false, destroy=false){
       const postIndex = posts.findIndex((p)=>post.id === p.id)
       const oldPost = posts.find((p)=>post.id === p.id)
@@ -30,22 +31,18 @@ function PostContainer(){
                 return com
             }
         })
-
         newPost.comments= newComments
      }
-
-
      else if (!edit && destroy) { //delete comment
         const updatedComments= post.comments.filter((com)=>com.id !== comment) 
         newPost.comments = updatedComments
     }
-     
-
-
       const firstHalf = posts.slice(0,postIndex)
       const SecondHalf = posts.slice(postIndex +1)
       setPosts([...firstHalf, newPost, ...SecondHalf])
     }
+    //end 
+
 
 
     let displayPosts = posts.map((post)=>{
