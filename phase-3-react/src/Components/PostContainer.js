@@ -15,14 +15,14 @@ function PostContainer(){
         .then(posts=>setPosts(posts))
     },[])
 
-    function updatePosts(post, comment, edit = false){
+    function updatePosts(post, comment, edit = false, destroy=false){
       const postIndex = posts.findIndex((p)=>post.id === p.id)
       const oldPost = posts.find((p)=>post.id === p.id)
       const newPost = {...oldPost}
-      if (!edit ){
-        newPost.comments = [...newPost.comments, comment]}
-     else {
-        const newComments = post.comments.map((com)=>{
+      if (!edit && !destroy ){
+        newPost.comments = [...newPost.comments, comment]} //add new comment
+     else if (edit && !destroy) {
+        const newComments = post.comments.map((com)=>{ //update comment
             if (com.id === comment.id){
                 return comment
             }
@@ -34,44 +34,23 @@ function PostContainer(){
         newPost.comments= newComments
      }
 
+
+     else if (!edit && destroy) { //delete comment
+        const updatedComments= post.comments.filter((com)=>com.id !== comment) 
+        newPost.comments = updatedComments
+    }
+     
+
+
       const firstHalf = posts.slice(0,postIndex)
       const SecondHalf = posts.slice(postIndex +1)
       setPosts([...firstHalf, newPost, ...SecondHalf])
     }
 
 
-    function editComment(post, editedCommentObj){
-        const newComments = post.comments.map((comment)=>{
-            if (comment.id === editedCommentObj.id){
-                return editedCommentObj
-            }
-            else {
-                return comment
-            }
-        })
-
-        const editedPost = {...post}
-        editedPost.comments = newComments
-        const postIndex = posts.findIndex((p)=>post.id === p.id)
-        const firstHalf = posts.slice(0,postIndex)
-        const SecondHalf = posts.slice(postIndex +1)
-        setPosts([...firstHalf, editedPost, ...SecondHalf])
-    }
-
-    function hanleCommentDelete(post, deletedComment){
-    const updatedComments= post.comments.filter((comment)=>comment.id !== deletedComment)
-    const editedPost ={...post}
-    editedPost.comments = updatedComments
-    const postIndex = posts.findIndex((p)=>post.id === p.id)
-    const firstHalf = posts.slice(0,postIndex)
-    const SecondHalf = posts.slice(postIndex +1)
-    setPosts([...firstHalf, editedPost, ...SecondHalf])
-    }
-
-
     let displayPosts = posts.map((post)=>{
         return(
-        <Post key={post.id} post={post} updatePosts={updatePosts} myUser={myUser} onEditComment={editComment} onCommentDelete={hanleCommentDelete}/>
+        <Post key={post.id} post={post} updatePosts={updatePosts} myUser={myUser}/>
         )
     })
 

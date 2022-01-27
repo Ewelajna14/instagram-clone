@@ -2,7 +2,7 @@ import styled from "styled-components"
 import React, { useState } from "react";
 import EditComment from './EditComment'
 
-function Comments({comment, myUser, updatePosts, post, onCommentDelete}){
+function Comments({comment, myUser, updatePosts, post}){
 
     const [isEditing, setIsEditing] = useState(false);
 
@@ -12,7 +12,7 @@ function Comments({comment, myUser, updatePosts, post, onCommentDelete}){
         fetch(`http://localhost:9292/posts/${post.id}/comments/${comment.id}`,{
             method: "DELETE",
         })
-        onCommentDelete(post, comment.id)
+        updatePosts(post, comment.id, false, true)
     }
 
     return(

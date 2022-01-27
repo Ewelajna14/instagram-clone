@@ -1,17 +1,17 @@
 import Comments from "./Comments";
 import AddComment from './AddComment';
 import styled from "styled-components";
-import React, {useState, useEffect} from 'react' 
 
 
-function CommentsContainer({post, updatePosts, myUser, onEditComment, onCommentDelete }){
+
+function CommentsContainer({post, updatePosts, myUser}){
 
     return(
         <div>
         <StyledContainer>
           {post.comments.map((comment)=>{
                  return(
-                     <Comments key={comment.id} comment={comment} myUser={myUser} updatePosts={updatePosts} post={post} onCommentDelete={onCommentDelete}/>
+                     <Comments key={comment.id} comment={comment} myUser={myUser} updatePosts={updatePosts} post={post} />
                  )
              })}
         </StyledContainer>

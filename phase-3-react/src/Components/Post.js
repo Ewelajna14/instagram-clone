@@ -4,7 +4,7 @@ import CommentsContainer from './CommentsContainer';
 
 
 
-function Post({post, updatePosts, myUser, onEditComment, onCommentDelete }){
+function Post({post, updatePosts, myUser}){
     return(
         <PostStyled>
             {/* header contains username and user photo*/ }
@@ -20,7 +20,7 @@ function Post({post, updatePosts, myUser, onEditComment, onCommentDelete }){
             <h3>{post.username}</h3>
             <p>{post.description}</p>
             </DescriptionStyled>
-            <CommentsContainer post={post} updatePosts={updatePosts} myUser={myUser} onEditComment={onEditComment} onCommentDelete={onCommentDelete}/> 
+            <CommentsContainer post={post} updatePosts={updatePosts} myUser={myUser}/> 
         </PostStyled>
     )
 }
