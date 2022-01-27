@@ -4,15 +4,14 @@ import styled from "styled-components";
 import React, {useState, useEffect} from 'react' 
 
 
-
-function CommentsContainer({post, updatePosts, myUser, onEditComment }){
+function CommentsContainer({post, updatePosts, myUser, onEditComment, onCommentDelete }){
 
     return(
         <div>
         <StyledContainer>
           {post.comments.map((comment)=>{
                  return(
-                     <Comments key={comment.id} comment={comment} myUser={myUser} onEditComment={onEditComment} post={post}/>
+                     <Comments key={comment.id} comment={comment} myUser={myUser} onEditComment={onEditComment} post={post} onCommentDelete={onCommentDelete}/>
                  )
              })}
         </StyledContainer>

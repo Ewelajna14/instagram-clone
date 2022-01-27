@@ -44,10 +44,20 @@ function PostContainer(){
         setPosts([...firstHalf, editedPost, ...SecondHalf])
     }
 
+    function hanleCommentDelete(post, deletedComment){
+    const updatedComments= post.comments.filter((comment)=>comment.id !== deletedComment)
+    const editedPost ={...post}
+    editedPost.comments = updatedComments
+    const postIndex = posts.findIndex((p)=>post.id === p.id)
+    const firstHalf = posts.slice(0,postIndex)
+    const SecondHalf = posts.slice(postIndex +1)
+    setPosts([...firstHalf, editedPost, ...SecondHalf])
+    }
+
 
     let displayPosts = posts.map((post)=>{
         return(
-        <Post key={post.id} post={post} updatePosts={updatePosts} myUser={myUser} onEditComment={editComment}/>
+        <Post key={post.id} post={post} updatePosts={updatePosts} myUser={myUser} onEditComment={editComment} onCommentDelete={hanleCommentDelete}/>
         )
     })
 
