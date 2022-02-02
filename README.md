@@ -1,6 +1,6 @@
 # Phase 3 Project - Instagram Clone 
 This project was created based on popular Instagram application. 
-It is a very simple app where you can add your favorite photos, comment other's posts, change and delete your comment. 
+It is a very simple app where you can see really nice photos, comment other's posts, change and delete your comments. 
 ## Setup
 1. Clone the repo: https://github.com/Ewelajna14/phase-3-project
 2. Navigate to **phase-3-react folder** (a React frontend)
