@@ -21,5 +21,5 @@ This will run your server on port (http://localhost:9292)
 
 to see different post, just replace number with post's id
 
-##Contributing
+## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
